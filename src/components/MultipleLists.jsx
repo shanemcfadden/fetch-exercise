@@ -18,16 +18,18 @@ const MultipleLists = ({ listsTable, sortListsFn, sortListItemsFn }) => {
 };
 
 MultipleLists.propTypes = {
-  listsTable: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    values: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-  }).isRequired,
+  listsTable: PropTypes.objectOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      values: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    })
+  ).isRequired,
   sortListsFn: PropTypes.func,
   sortListItemsFn: PropTypes.func,
 };
