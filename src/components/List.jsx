@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const List = ({ values, name, sortFn }) => {
   const orderedValues = sortFn ? values.sort(sortFn) : values;
@@ -12,6 +13,17 @@ const List = ({ values, name, sortFn }) => {
       </ul>
     </div>
   );
+};
+
+List.propTypes = {
+  name: PropTypes.string.isRequired,
+  values: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  sortFun: PropTypes.func,
 };
 
 export default List;
