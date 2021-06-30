@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import MultipleLists from "./components/MultipleLists";
-import "./styles/App.css";
 
 const App = () => {
   const [lists, setLists] = useState({});

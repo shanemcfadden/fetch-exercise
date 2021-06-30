@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "../styles/List.css";
 import Chevron from "../icons/chevron_right_black_24dp.svg";
 
 const List = ({ values, name, sortFn }) => {
