@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MultipleLists from "./components/MultipleLists";
+import "./styles/App.css";
 
 const App = () => {
   const [lists, setLists] = useState({});
@@ -30,13 +31,19 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>Fetch Exercise</h1>
-        <MultipleLists
-          listsTable={lists}
-          sortListsFn={sortByIdNumber}
-          sortListItemsFn={sortByItemNumber}
-        />
+        <div className="content-container">
+          <h1>Fetch Exercise</h1>
+        </div>
       </header>
+      <main>
+        <div className="content-container">
+          <MultipleLists
+            listsTable={lists}
+            sortListsFn={sortByIdNumber}
+            sortListItemsFn={sortByItemNumber}
+          />
+        </div>
+      </main>
     </div>
   );
 };
