@@ -1,0 +1,19 @@
+.list--collapsed > .list__items {
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.list__header {
+  cursor: pointer;
+  margin: 0;
+  padding: 1rem;
+}
+
+.list__header:hover {
+  background-color: #ccc;
+}
+
+.list__items > li {
+  list-style-type: "-  ";
+}
