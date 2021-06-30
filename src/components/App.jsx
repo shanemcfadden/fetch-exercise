@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import MultipleLists from "./components/MultipleLists";
-import { reduceListItemsToObject } from "./util/reduce";
-import { sortByIdNumber, sortByItemNumber } from "./util/sort";
+import MultipleLists from "./MultipleLists";
+import { reduceListItemsToObject } from "../util/reduce";
+import { sortByIdNumber, sortByItemNumber } from "../util/sort";
 
 const App = () => {
   const [lists, setLists] = useState({});
