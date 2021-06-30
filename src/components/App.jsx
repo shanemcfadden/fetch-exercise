@@ -13,6 +13,9 @@ const App = () => {
       .then((data) => {
         const listsObject = data.reduce(reduceListItemsToObject, {});
         setLists(listsObject);
+      })
+      .catch(() => {
+        setLists(null);
       });
   }, []);
 
@@ -25,11 +28,18 @@ const App = () => {
       </header>
       <div className="content-container">
         <main>
-          <MultipleLists
-            listsTable={lists}
-            sortListsFn={sortByIdNumber}
-            sortListItemsFn={sortByItemNumber}
-          />
+          {lists ? (
+            <MultipleLists
+              listsTable={lists}
+              sortListsFn={sortByIdNumber}
+              sortListItemsFn={sortByItemNumber}
+            />
+          ) : (
+            <p className="center-text">
+              "Failed to fetch resource from
+              https://fetch-hiring.s3.amazonaws.com/hiring.json"
+            </p>
+          )}
         </main>
       </div>
     </div>
