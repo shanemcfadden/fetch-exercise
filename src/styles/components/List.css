@@ -11,13 +11,14 @@
 .list__icon {
   margin-right: 0.5rem;
   transform: scale(1.6) rotate(90deg);
-  transition: transform 0.5s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
 .list__header {
   cursor: pointer;
   margin: 0;
   padding: 1rem;
+  transition: background-color 0.3s;
 }
 
 .list__header:hover {
