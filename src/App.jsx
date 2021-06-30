@@ -9,21 +9,21 @@ const App = () => {
     fetch("https://fetch-hiring.s3.amazonaws.com/hiring.json")
       .then((res) => res.json())
       .then((data) => {
-        const multipleListTable = data.reduce((table, currentValue) => {
+        const listsObject = data.reduce((object, currentValue) => {
           const { name, listId, id } = currentValue;
-          if (!name) return table;
-
-          if (!table[listId]) {
-            table[listId] = {
-              id: listId,
-              name: `List ${listId}`,
-              values: [],
-            };
+          if (name) {
+            if (!object[listId]) {
+              object[listId] = {
+                id: listId,
+                name: `List ${listId}`,
+                values: [],
+              };
+            }
+            object[listId].values.push({ id, name });
           }
-          table[listId].values.push({ id, name });
-          return table;
+          return object;
         }, {});
-        setLists(multipleListTable);
+        setLists(listsObject);
       });
   }, []);
 
@@ -33,7 +33,7 @@ const App = () => {
         <h1>Fetch Exercise</h1>
         <MultipleLists
           listsTable={lists}
-          sortListsFn={(a, b) => a.id - b.id}
+          sortListsFn={sortByIdNumber}
           sortListItemsFn={sortByItemNumber}
         />
       </header>
@@ -41,7 +41,12 @@ const App = () => {
   );
 };
 
-// Sort objects of type { name: "Item #" }
+// Sort objects of type { id: #, ...} by #
+function sortByIdNumber(a, b) {
+  return a.id - b.id;
+}
+
+// Sort objects of type { name: "Item #", ... } by #
 function sortByItemNumber(a, b) {
   const getItemNumber = (name) => name.split(" ")[1];
   return getItemNumber(a.name) - getItemNumber(b.name);

@@ -9,13 +9,8 @@ const MultipleLists = ({ listsTable, sortListsFn, sortListItemsFn }) => {
   if (sortListsFn) lists.sort(sortListsFn);
   return (
     <div>
-      {lists.map((list, i) => (
-        <List
-          key={i}
-          name={list.name}
-          values={list.values}
-          sortFn={sortListItemsFn}
-        />
+      {lists.map(({ name, values }, i) => (
+        <List key={i} name={name} values={values} sortFn={sortListItemsFn} />
       ))}
     </div>
   );
