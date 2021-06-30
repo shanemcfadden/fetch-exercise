@@ -15,6 +15,7 @@ const App = () => {
 
           if (!table[listId]) {
             table[listId] = {
+              id: listId,
               name: `List ${listId}`,
               values: [],
             };
@@ -30,10 +31,20 @@ const App = () => {
     <div className="App">
       <header>
         <h1>Fetch Exercise</h1>
-        <MultipleLists listsTable={lists} />
+        <MultipleLists
+          listsTable={lists}
+          sortListsFn={(a, b) => a.id - b.id}
+          sortListItemsFn={sortByItemNumber}
+        />
       </header>
     </div>
   );
 };
+
+// Sort objects of type { name: "Item #" }
+function sortByItemNumber(a, b) {
+  const getItemNumber = (name) => name.split(" ")[1];
+  return getItemNumber(a.name) - getItemNumber(b.name);
+}
 
 export default App;
