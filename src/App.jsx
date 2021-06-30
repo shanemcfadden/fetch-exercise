@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MultipleLists from "./components/MultipleLists";
+import { reduceListItemsToObject } from "./util/reduce";
 import { sortByIdNumber, sortByItemNumber } from "./util/sort";
 
 const App = () => {
@@ -10,20 +11,7 @@ const App = () => {
     fetch("https://fetch-hiring.s3.amazonaws.com/hiring.json")
       .then((res) => res.json())
       .then((data) => {
-        const listsObject = data.reduce((object, currentValue) => {
-          const { name, listId, id } = currentValue;
-          if (name) {
-            if (!object[listId]) {
-              object[listId] = {
-                id: listId,
-                name: `List ${listId}`,
-                values: [],
-              };
-            }
-            object[listId].values.push({ id, name });
-          }
-          return object;
-        }, {});
+        const listsObject = data.reduce(reduceListItemsToObject, {});
         setLists(listsObject);
       });
   }, []);
