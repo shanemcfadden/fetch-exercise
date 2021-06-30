@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import MultipleLists from "./components/MultipleLists";
 
 const App = () => {
+  const [lists, setLists] = useState({});
+
   // Fetch JSON data on page load
   useEffect(() => {
     fetch("https://fetch-hiring.s3.amazonaws.com/hiring.json")
@@ -19,7 +22,7 @@ const App = () => {
           table[listId].values.push({ id, name });
           return table;
         }, {});
-        console.log(multipleListTable);
+        setLists(multipleListTable);
       });
   }, []);
 
@@ -27,6 +30,7 @@ const App = () => {
     <div className="App">
       <header>
         <h1>Fetch Exercise</h1>
+        <MultipleLists listsTable={lists} />
       </header>
     </div>
   );
