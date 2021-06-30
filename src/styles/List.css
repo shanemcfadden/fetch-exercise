@@ -4,6 +4,16 @@
   overflow: hidden;
 }
 
+.list--collapsed .list__icon {
+  transform: scale(1.6) rotate(0deg);
+}
+
+.list__icon {
+  margin-right: 0.5rem;
+  transform: scale(1.6) rotate(90deg);
+  transition: transform 0.5s ease-out;
+}
+
 .list__header {
   cursor: pointer;
   margin: 0;

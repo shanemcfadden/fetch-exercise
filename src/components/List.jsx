@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/List.css";
+import Chevron from "../icons/chevron_right_black_24dp.svg";
 
 const List = ({ values, name, sortFn }) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -26,6 +27,7 @@ const List = ({ values, name, sortFn }) => {
         onClick={toggleCollapsed}
         onKeyPress={handleKeyPress}
       >
+        <img className="list__icon" alt="drop-down icon" src={Chevron} />
         {name}
       </h2>
       <ul className="list__items">
