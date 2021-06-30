@@ -1,10 +1,15 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
+  background-color: var(--main-background-color--faded);
 }
 
 header {
-  background-color: var(--main-background-color);
+  background-color: var(--contrasting-background-color);
   color: var(--header-text-color);
   padding: 1.67rem 0;
+}
+
+main {
+  background-color: var(--main-background-color);
 }

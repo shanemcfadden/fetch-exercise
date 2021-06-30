@@ -21,7 +21,7 @@
 }
 
 .list__header:hover {
-  background-color: var(--main-background-color);
+  background-color: var(--contrasting-background-color);
 }
 
 .list__items > li {

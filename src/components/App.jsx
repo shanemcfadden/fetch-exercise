@@ -23,15 +23,15 @@ const App = () => {
           <h1>Fetch Exercise</h1>
         </div>
       </header>
-      <main>
-        <div className="content-container">
+      <div className="content-container">
+        <main>
           <MultipleLists
             listsTable={lists}
             sortListsFn={sortByIdNumber}
             sortListItemsFn={sortByItemNumber}
           />
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 };

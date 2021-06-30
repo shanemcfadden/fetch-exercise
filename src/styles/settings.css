@@ -1,4 +1,6 @@
 :root {
+  --contrasting-background-color: #ffe452;
   --header-text-color: #3a0a55;
-  --main-background-color: #ffe452;
+  --main-background-color: #fff;
+  --main-background-color--faded: #eee;
 }
